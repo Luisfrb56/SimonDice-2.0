@@ -6,6 +6,7 @@ import android.os.Bundle
 import org.jetbrains.anko.toast
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.coroutines.*
+import java.security.KeyStore
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
@@ -14,6 +15,7 @@ class MainActivity : AppCompatActivity() {
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
 
         tvNivel.setText("")
 
@@ -68,7 +70,7 @@ class MainActivity : AppCompatActivity() {
                         delay(500L)
 
                     }
-                    verCiclo(comprobante)
+                    verCiclo(dificultad)
                 }
             }else{
                 nivel=1
@@ -110,7 +112,11 @@ class MainActivity : AppCompatActivity() {
 
             }; if(actual>=maximo){
 
-
+            bempe.isClickable=true
+            bRojo.isClickable= true
+            bAzul.isClickable= true
+            bAmarillo.isClickable=true
+            bVerde.isClickable=true
             toast("Intentalo ahora")
             comprobante=dificultad
 
@@ -125,6 +131,11 @@ class MainActivity : AppCompatActivity() {
         var aleatorio = 0
         var on = 0L
 
+        bempe.isClickable=false
+        bRojo.isClickable= false
+        bAzul.isClickable= false
+        bAmarillo.isClickable=false
+        bVerde.isClickable=false
 
         for (i in 1..dificultad) {
             aleatorio = random.nextInt(4)
